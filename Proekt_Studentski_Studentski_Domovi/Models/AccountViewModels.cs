@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Proekt_Studentski_Studentski_Domovi.Models
@@ -116,6 +117,28 @@ namespace Proekt_Studentski_Studentski_Domovi.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email{ get; set; }
+        [Required]
+        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+    }
+
+    public class KorisnikViewModel
+    {
+
+        public int Id_Korisnik { get; set; }
+        public string Ime { get; set; }
+        public string Prezime { get; set; }
+        public string Adresa { get; set; }
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+        public DateTime? Godina_Na_Raganje { get; set; }
+        public string Pol { get; set; }
+        public int? Godina_Na_Studii { get; set; }
+        public int? Korisnik_SD { get; set; }
+        public int? Korisnik_Soba { get; set; }
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]

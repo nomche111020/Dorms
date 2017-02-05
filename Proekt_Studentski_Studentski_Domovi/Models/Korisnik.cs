@@ -7,6 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Proekt_Studentski_Studentski_Domovi.Models
 {
     using System;
@@ -30,8 +32,12 @@ namespace Proekt_Studentski_Studentski_Domovi.Models
         public Nullable<int> Godina_Na_Studii { get; set; }
         public Nullable<int> Korisnik_SD { get; set; }
         public Nullable<int> Korisnik_Soba { get; set; }
-    
+
+        public int ID_Studentski_Dom { get; set; }
+        public int ID_Soba{ get; set; }
+        [ForeignKey("ID_Studentski_Dom")]
         public virtual Studentski_Dom Studentski_Dom { get; set; }
+        [ForeignKey("ID_Soba")]
         public virtual Soba Soba { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Smetka> Smetkas { get; set; }

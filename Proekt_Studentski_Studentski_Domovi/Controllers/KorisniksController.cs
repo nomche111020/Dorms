@@ -72,17 +72,49 @@ namespace Proekt_Studentski_Studentski_Domovi.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id_Korisnik,Ime,Prezime,Adresa,Email,Godina_Na_Raganje,Pol,Godina_Na_Studii,Korisnik_SD,Korisnik_Soba")] Korisnik korisnik)
+        public ActionResult Create(KorisnikViewModel korisnik)
         {
+            Korisnik dbModel = new Korisnik();
+            dbModel.Email = korisnik.Email;
+            dbModel.Adresa = korisnik.Adresa;
+            dbModel.Ime = korisnik.Ime;
+            dbModel.Pol = korisnik.Pol;
+            dbModel.Prezime = korisnik.Prezime;
+
+
+
+            if (korisnik.Korisnik_Soba.HasValue) dbModel.ID_Soba = korisnik.Korisnik_Soba.Value;
+            if (korisnik.Korisnik_SD.HasValue) dbModel.ID_Studentski_Dom = korisnik.Korisnik_SD.Value;
+            if (korisnik.Godina_Na_Studii.HasValue) dbModel.Godina_Na_Studii = korisnik.Godina_Na_Studii.Value;
+            if (korisnik.Godina_Na_Raganje.HasValue) dbModel.Godina_Na_Raganje = korisnik.Godina_Na_Raganje.Value;
+            ApplicationDbContext context = new ApplicationDbContext();
+
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+            var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+            role.Name = "Admin";
+            roleManager.Create(role);
+
+            ApplicationUser user = new ApplicationUser();
+
+            user.Email = korisnik.Email;
+            user.UserName = user.Email;
+
+            var chkUser = userManager.Create(user, korisnik.Password);
+
+            if (chkUser.Succeeded)
+            {
+                var result1 = userManager.AddToRole(user.Id, "Student");
+            }
+
             if (ModelState.IsValid)
             {
-                db.Korisniks.Add(korisnik);
+                db.Korisniks.Add(dbModel);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Korisnik_SD = new SelectList(db.Studentski_Dom, "SD_Id", "Ime_SD", korisnik.Korisnik_SD);
-            ViewBag.Korisnik_Soba = new SelectList(db.Sobas, "Id_Soba", "Id_Soba", korisnik.Korisnik_Soba);
             return View(korisnik);
         }
 
@@ -176,7 +208,7 @@ namespace Proekt_Studentski_Studentski_Domovi.Controllers
 
             ApplicationUser user = new ApplicationUser();
 
-            user.Email = plainUser.Email;                
+            user.Email = plainUser.Email;
             user.UserName = user.Email;
 
             var chkUser = userManager.Create(user, plainUser.Password);
@@ -186,7 +218,7 @@ namespace Proekt_Studentski_Studentski_Domovi.Controllers
                 var result1 = userManager.AddToRole(user.Id, "Student");
 
             }
-            return RedirectToAction("Admin","Home");
+            return RedirectToAction("Admin", "Home");
         }
     }
 
