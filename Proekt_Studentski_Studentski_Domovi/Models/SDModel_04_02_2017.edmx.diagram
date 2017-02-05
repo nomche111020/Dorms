@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ede4429b87584728af6a6408511ee0a0" Name="Diagram1">
+        <EntityTypeShape EntityType="SD_BAZA_04_02_2017Model.Korisnik" Width="1.5" PointX="5.25" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SD_BAZA_04_02_2017Model.Smetka" Width="1.5" PointX="7.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SD_BAZA_04_02_2017Model.Soba" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SD_BAZA_04_02_2017Model.Studentski_Dom" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="SD_BAZA_04_02_2017Model.FK__Korisnik__Korisn__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="SD_BAZA_04_02_2017Model.FK__Korisnik__Korisn__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="SD_BAZA_04_02_2017Model.FK__Smetka__Smetka_S__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="SD_BAZA_04_02_2017Model.FK__Smetka__Smetka_S__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="SD_BAZA_04_02_2017Model.FK__Soba__Naziv_SD__3A81B327" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

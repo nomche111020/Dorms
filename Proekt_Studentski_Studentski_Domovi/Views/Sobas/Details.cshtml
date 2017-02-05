@@ -1,0 +1,66 @@
+﻿@model Proekt_Studentski_Studentski_Domovi.Models.Soba
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Soba</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Sprat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sprat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Broj_Soba)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Broj_Soba)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kapacitet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kapacitet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cena_Po_Lice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cena_Po_Lice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Dostapnost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dostapnost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Studentski_Dom.Ime_SD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Studentski_Dom.Ime_SD)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id_Soba }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
