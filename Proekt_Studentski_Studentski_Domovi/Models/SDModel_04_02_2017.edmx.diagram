@@ -14,6 +14,14 @@
         <AssociationConnector Association="SD_BAZA_04_02_2017Model.FK__Smetka__Smetka_S__4222D4EF" ManuallyRouted="false" />
         <AssociationConnector Association="SD_BAZA_04_02_2017Model.FK__Smetka__Smetka_S__412EB0B6" ManuallyRouted="false" />
         <AssociationConnector Association="SD_BAZA_04_02_2017Model.FK__Soba__Naziv_SD__3A81B327" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SD_BAZA_04_02_2017Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SD_BAZA_04_02_2017Model.AspNetRole" Width="1.5" PointX="7.75" PointY="2.5" />
+        <EntityTypeShape EntityType="SD_BAZA_04_02_2017Model.AspNetUserClaim" Width="1.5" PointX="12.25" PointY="3.625" />
+        <EntityTypeShape EntityType="SD_BAZA_04_02_2017Model.AspNetUserLogin" Width="1.5" PointX="12.25" PointY="1" />
+        <EntityTypeShape EntityType="SD_BAZA_04_02_2017Model.AspNetUser" Width="1.5" PointX="10" PointY="1.375" />
+        <AssociationConnector Association="SD_BAZA_04_02_2017Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="SD_BAZA_04_02_2017Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
+        <AssociationConnector Association="SD_BAZA_04_02_2017Model.AspNetUserRoles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

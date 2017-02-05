@@ -136,7 +136,7 @@ namespace Proekt_Studentski_Studentski_Domovi.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles="Admin")]
         public ActionResult Register()
         {
             return View();
@@ -144,6 +144,7 @@ namespace Proekt_Studentski_Studentski_Domovi.Controllers
 
         //
         // POST: /Account/Register
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

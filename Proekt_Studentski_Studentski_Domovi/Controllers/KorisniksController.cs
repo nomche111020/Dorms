@@ -6,6 +6,8 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Proekt_Studentski_Studentski_Domovi.Models;
 
 namespace Proekt_Studentski_Studentski_Domovi.Controllers
@@ -153,5 +155,39 @@ namespace Proekt_Studentski_Studentski_Domovi.Controllers
             }
             base.Dispose(disposing);
         }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Add()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult Add(UserViewModel plainUser)
+        {
+            ApplicationDbContext context = new ApplicationDbContext();
+
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+
+            var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+            role.Name = "Admin";
+            roleManager.Create(role);
+
+            ApplicationUser user = new ApplicationUser();
+
+            user.Email = plainUser.Email;                
+            user.UserName = user.Email;
+
+            var chkUser = userManager.Create(user, plainUser.Password);
+
+            if (chkUser.Succeeded)
+            {
+                var result1 = userManager.AddToRole(user.Id, "Student");
+
+            }
+            return RedirectToAction("Admin","Home");
+        }
     }
+
 }

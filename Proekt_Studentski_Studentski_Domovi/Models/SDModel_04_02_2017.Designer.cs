@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'E:\PROEKT ZA DELOVNA PRAKSA\Proekt_Studentski_Studentski_Domovi\Proekt_Studentski_Studentski_Domovi\Models\SDModel_04_02_2017.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Projects\Dorms\Proekt_Studentski_Studentski_Domovi\Models\SDModel_04_02_2017.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

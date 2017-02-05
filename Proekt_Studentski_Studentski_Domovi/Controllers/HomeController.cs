@@ -26,11 +26,15 @@ namespace Proekt_Studentski_Studentski_Domovi.Controllers
 
             return View();
         }
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin()
         {
             ViewBag.Message = "Админ страна";
+            return View();
+        }
 
+        public ActionResult Student()
+        {
             return View();
         }
     }

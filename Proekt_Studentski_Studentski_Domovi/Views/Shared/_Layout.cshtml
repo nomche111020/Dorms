@@ -23,7 +23,15 @@
                 <ul class="nav navbar-nav">
                     <li style="color:white;">@Html.ActionLink("Дома", "Index", "Home")</li>
                     <li style="color:white;">@Html.ActionLink("За нас", "About", "Home")</li>
-                    <li style="color:white;">@Html.ActionLink("Контакт", "Contact", "Home")</li>
+                    <li style="color: white;">@Html.ActionLink("Контакт", "Contact", "Home")</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li style="color: white;">@Html.ActionLink("Админ", "Admin", "Home")</li>
+                    }
+                    else
+                    {
+                        <li style="color: white;">@Html.ActionLink("Студентски информации", "Student", "Home")</li>
+                    }
                     <!--<li>@Html.ActionLink("Додади Нов Дом", "Index", "Studentski_Dom")</li>-->
                 </ul>
                 @Html.Partial("_LoginPartial")
