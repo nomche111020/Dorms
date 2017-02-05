@@ -91,7 +91,6 @@ namespace Proekt_Studentski_Studentski_Domovi.Controllers
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
             var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
-
             var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
             role.Name = "Admin";
             roleManager.Create(role);

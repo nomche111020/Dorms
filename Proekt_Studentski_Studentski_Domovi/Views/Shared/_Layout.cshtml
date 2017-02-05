@@ -28,7 +28,7 @@
                     {
                         <li style="color: white;">@Html.ActionLink("Админ", "Admin", "Home")</li>
                     }
-                    else
+                    else if(User.IsInRole("Student"))
                     {
                         <li style="color: white;">@Html.ActionLink("Студентски информации", "Student", "Home")</li>
                     }

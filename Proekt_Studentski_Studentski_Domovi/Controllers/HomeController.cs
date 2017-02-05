@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using Proekt_Studentski_Studentski_Domovi.Models;
 
 namespace Proekt_Studentski_Studentski_Domovi.Controllers
 {
@@ -35,7 +37,17 @@ namespace Proekt_Studentski_Studentski_Domovi.Controllers
 
         public ActionResult Student()
         {
-            return View();
+            var email = User.Identity.GetUserName();
+            if (User.Identity.GetUserName() != null || User.Identity.GetUserName() != "")
+            {
+                Korisnik kor = new Korisnik();
+                using (var db = new SD_BAZA_04_02_2017Entities())
+                {
+                    kor = db.Korisniks.First(korisnik => korisnik.Email == email);
+                }
+                return View(kor);
+            }
+            return RedirectToAction("Index");
         }
     }
 }

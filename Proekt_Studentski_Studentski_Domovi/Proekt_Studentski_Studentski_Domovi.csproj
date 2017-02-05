@@ -347,8 +347,8 @@
     <Content Include="Views\Smetkas\Edit.cshtml" />
     <Content Include="Views\Smetkas\Index.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
-    <Content Include="Views\Home\Student.cshtml" />
     <Content Include="Views\Korisniks\Add.cshtml" />
+    <Content Include="Views\Home\Student.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
